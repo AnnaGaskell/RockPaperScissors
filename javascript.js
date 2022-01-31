@@ -1,58 +1,26 @@
-
-let playerChoice;
-let computerChoice;
-
-function playerPlay(){
-  
-    playerChoice = prompt("Rock, Paper, Scissors?").toLowerCase();
-    
-    if 
-    (playerChoice == "rock" ||
-    playerChoice == "paper" ||
-    playerChoice == "scissors")
-    
-    {
-    return playerChoice;
-
-    } else {
-      alert("That is not a valid choice.");
-    }
-  
-}
-// console.log(playerPlay(playerChoice));
-
 function computerPlay(){     
     
     const choices = ["rock", "paper", "scissors"];
-    computerChoice = choices[Math.floor(Math.random()*choices.length)]
+    let computerChoice = choices[Math.floor(Math.random()*choices.length)]
 
     return computerChoice;
     
 }
-// console.log(computerPlay(computerChoice));
-
-let playerSelection;
-let computerSelection;
-playerSelection = playerPlay();
-computerSelection = computerPlay();
 
 let playerScore = 0;
 let computerScore = 0;
 
-let roundWinner
-
-let playerRound = "Player Wins this Round"
-let computerRound = "Computer Wins this Round"
-let drawRound = " Tie Round"
 
 function playRound(playerSelection, computerSelection) {
 
+    playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase();
+    computerSelection = computerPlay();
+    
     if
         (computerSelection === playerSelection) 
         {
-        console.log("Tie Round")
-        return drawRound;
-        
+        let result = ("Tie Round");
+        return result;
         }
 
     else if
@@ -61,10 +29,9 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "paper" && computerSelection === "scissors"))
                 
         {
-        roundWinner = computerSelection;
         computerScore++;
-        console.log("You Lost this Round.");
-        return playerRound ;
+        let result = "You Lost this Round.";
+        return result;
         }   
 
     else 
@@ -73,32 +40,37 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "paper" && computerSelection === "rock")) 
             
         {
-        roundWinner = playerSelection;
         playerScore++;
-        console.log("You Win this Round.");
-        return computerRound;
+        let result = "You Win this Round.";
+        return result;
         }
-}
+    
 
+}
 
 // console.log(playRound(playerSelection,computerSelection))
 
+ function endGame () {
 
-function game (playRound) {
-   
-     for (let i=0; i<10; i++) {
-        
-        if (playerScore === 5) {
-            console.log("You Won the Game");
-    
-        } else (computerScore === 5); {
-            console.log ("You Lost the Game");   
-        }
-        return;
-        
-     
+    if (playerScore > computerScore) {
+        console.log("You Won the Game");
+
+    } else (computerScore > playerScore); {
+        console.log ("You Lost the Game");   
     }
+ }
+
+function game () {
+    console.log(playRound());
+    if(playerScore < 5 && computerScore < 5){
+    	game();
+    }
+    else{
+    	endGame();
+    }
+   
+
 }
 
-console.log(game(playRound));
+game();
 
