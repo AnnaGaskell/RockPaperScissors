@@ -54,21 +54,22 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerScore > computerScore) {
         console.log("You Won the Game");
+        return
 
     } else (computerScore > playerScore); {
-        console.log ("You Lost the Game");   
+        console.log("You Lost the Game");
+        return   
     }
  }
 
 function game () {
     console.log(playRound());
-    if(playerScore < 5 && computerScore < 5){
+    if (playerScore < 5 && computerScore < 5){
     	game();
+        
+    } else {
+    	endGame();  
     }
-    else{
-    	endGame();
-    }
-   
 
 }
 
