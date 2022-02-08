@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
+    <div class="container">
+        <div class="topBox">
+            <div class="title">Rock, Leaf, Sticks</div>
+            <div class="results"> Results</div>
+        </div>
+        <div class="gameBox">
+            <div class="playerBox">
+                <h1 class="playerTitle">PLAYER</h1>
+                <div class="playerInfo">
+                    <div class="playerLogo">IconImage</div>
+                    <div class="playerScore">Score</div>
+                </div>
+                <div class=gameSelections>
+                    <div class="gameChoice" id="rockDiv">
+                        <p class="gameChoicetext">Rock</p>
+                        <img>
+                    </div>
+                    <div class="gameChoice" id="paperDiv">
+                        <p class="gameChoicetext">Paper</p>
+                        <img>
+                    </div>
+                    <div class="gameChoice" id="scissorsDiv">
+                        <p class="gameChoicetext">Scissors</p>
+                        <img>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="playerBox">
+                <h1 class="playerTitle">COMPUTER</h1>
+                <div class="playerInfo">
+                    <div class="playerLogo">IconImage</div>
+                    <div class="playerScore">Score</div>
+                </div>
+                <div class=gameSelections>
+                    <div class="gameChoice" id="compRockDiv">
+                        <p class="gameChoicetext">Rock</p>
+                        <img>
+                    </div>
+                    <div class="gameChoice" id="compPaperDiv">
+                        <p class="gameChoicetext">Paper</p>
+                        <img>
+                    </div>
+                    <div class="gameChoice" id="compScissorsDiv">
+                        <p class="gameChoicetext">Scissors</p>
+                        <img>
+                    </div>
+                </div>  
+            </div>
+        
+        </div>
+    </div>
+
     <script src="javascript.js"></script>
 </body>
 </html>

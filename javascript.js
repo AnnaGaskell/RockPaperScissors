@@ -50,28 +50,28 @@ function playRound(playerSelection, computerSelection) {
 
 // console.log(playRound(playerSelection,computerSelection))
 
- function endGame () {
+//  function endGame () {
 
-    if (playerScore > computerScore) {
-        console.log("You Won the Game");
-        return
+//     if (playerScore > computerScore) {
+//         console.log("You Won the Game");
+//         return
 
-    } else (computerScore > playerScore); {
-        console.log("You Lost the Game");
-        return   
-    }
- }
+//     } else (computerScore > playerScore); {
+//         console.log("You Lost the Game");
+//         return   
+//     }
+//  }
 
-function game () {
-    console.log(playRound());
-    if (playerScore < 5 && computerScore < 5){
-    	game();
+// function game () {
+//     console.log(playRound());
+//     if (playerScore < 5 && computerScore < 5){
+//     	game();
         
-    } else {
-    	endGame();  
-    }
+//     } else {
+//     	endGame();  
+//     }
 
-}
+// }
 
-game();
+// game();
 
