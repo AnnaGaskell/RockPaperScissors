@@ -1,5 +1,8 @@
 body{
     background-color: #bb0707ce;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    
 }
 
 .container {
@@ -9,7 +12,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-bottom: 100px;
 
 }
 
@@ -18,6 +21,7 @@ body{
     font: 80px bolder;
     text-align: center;
     padding: 50px auto 30px;
+    font-weight: 900;
 }
 .results {
     color: white;
@@ -35,9 +39,60 @@ body{
 }
 
 .playerBox {
-    background-color: rgba(255, 255, 255, 0.623);
+    background-color: rgba(75, 13, 13, 0.699);
+    border: 5px solid;
+    border-color: white;
     border-radius: 20px;
-    margin: 20px;
+    margin: 50px 20px;
+    padding-bottom: 50px;
     width: 400px;
-    height: 320px;
+    height: 350px;
+}
+
+.playerTitle {
+    display: flex;
+    justify-content: center;
+    border: 5px solid;
+    margin: 30px 50px 30px;
+
+}
+
+.playerInfo {
+    display:flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.gameSelections {
+    display:flex;
+    justify-content: space-around;
+    align-content: flex-end;
+    text-align: center;
+    
+}
+
+.gameChoice{
+    display: flex;
+    flex-direction: column;
+    
+}
+.button{
+    border: 2px solid;
+    border-radius: 50px;
+}
+
+.choiceImage {
+
+    padding: 10px;
+}
+
+    
+
+.attributes{
+    display:flex;
+    justify-content: center;
+    align-content: flex-end;
+    font-size: x-small;
+    
+
 }

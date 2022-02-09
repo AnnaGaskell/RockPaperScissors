@@ -1,3 +1,8 @@
+let playerScore = 0;
+let computerScore = 0;
+const buttons = document.querySelectorAll('button');
+
+
 function computerPlay(){     
     
     const choices = ["rock", "paper", "scissors"];
@@ -7,13 +12,12 @@ function computerPlay(){
     
 }
 
-let playerScore = 0;
-let computerScore = 0;
 
 
-function playRound(playerSelection, computerSelection) {
 
-    playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase();
+function playRound(playerSelection) {
+
+    // playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase();
     computerSelection = computerPlay();
     
     if
@@ -45,33 +49,48 @@ function playRound(playerSelection, computerSelection) {
         return result;
         }
     
-
+   
 }
 
 // console.log(playRound(playerSelection,computerSelection))
 
-//  function endGame () {
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
-//     if (playerScore > computerScore) {
-//         console.log("You Won the Game");
-//         return
+ function endGame () {
 
-//     } else (computerScore > playerScore); {
-//         console.log("You Lost the Game");
-//         return   
-//     }
-//  }
+    if (playerScore > computerScore) {
+        result = "You Won the Game";
+        disableButtons();
+        return
 
-// function game () {
-//     console.log(playRound());
-//     if (playerScore < 5 && computerScore < 5){
-//     	game();
+    } else (computerScore > playerScore); {
+        result = "You Lost the Game";
+        disableButtons();
+        return   
+    }
+   
+
+ }
+
+function game () {
+    console.log(playRound());
+    if (playerScore < 5 && computerScore < 5){
+    	game();
         
-//     } else {
-//     	endGame();  
-//     }
-
-// }
+    } else {
+    	endGame();  
+    }
+    document.getElementById('result').innerHTML = result;
+}
 
 // game();
 
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
+})
