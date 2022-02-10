@@ -8,35 +8,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Rock, Paper, Scissors</title>
+    <title>Rock, Leaf, Sticks</title>
 </head>
 <body>
     <div class="container">
         <div class="topBox">
             <div class="title">Rock // Leaf // Sticks</div>
-            <div class="results">Results</div>
+            <div id="results"></div>
         </div>
         <div class="gameBox">
             <div class="playerBox">
                 <h1 class="playerTitle">PLAYER</h1>
                 <div class="playerInfo">
                     <img  src="images/canadian.png" alt="canadianicon" class="playerLogo"></img>
-                    <p class="playerScore">Score</p>
                 </div>
                 <div class=gameSelections>
-                    <div class="gameChoice" id="rockDiv">
-                        <button class="button" value="rock"><img src="images/rock.png" alt="curlingrock" class="choiceImage"></button>
-                        <p class="gameChoicetext">Rock</p>
+                    <div class="RockButton" data-button="Rock">
+                        <img src="images/Rock.png" alt="curlingRock" class="choiceImage">
                         
                     </div>
-                    <div class="gameChoice" id="paperDiv">
-                        <button class="button" value="paper"><img src="images/leaf.png" alt="mapleleaf" class="choiceImage"></button>
-                        <p class="gameChoicetext">Leaf</p>
+                    <div class="LeafButton" data-button="Leaf">
+                        <img src="images/Leaf.png" alt="mapleLeaf" class="choiceImage">
                         
                     </div>
-                    <div class="gameChoice" id="scissorsDiv">
-                        <button class="button" value="scissors"><img src="images/sticks.png" alt="hockeysticks" class="choiceImage"></button>
-                        <p class="gameChoicetext">Sticks</p>
+                    <div class="SticksButton" data-button="Sticks">
+                        <img src="images/Sticks.png" alt="hockeySticks" class="choiceImage">
                         
                     </div>
                 </div>  
@@ -45,23 +41,19 @@
             <div class="playerBox">
                 <h1 class="playerTitle">COMPUTER</h1>
                 <div class="playerInfo">
-                    <img src="images/mountie.png" alt="mountie" class="playerLogo"></img>
-                    <p class="playerScore">Score</p>
+                    <img src="images/mountie.png" alt="mountie" class="playerLogo">
                 </div>
                 <div class=gameSelections>
-                    <div class="gameChoice" id="compRockDiv">
-                        <button class="button" value="rock"><img src="images/rock.png" alt="curlingrock" class="choiceImage"></button>
-                        <p class="gameChoicetext">Rock</p>
+                    <div class="compRock" data-button="compRock">
+                        <img src="images/Rock.png" alt="curlingRock" class="choiceImageNull">
                     
                     </div>
-                    <div class="gameChoice" id="compPaperDiv">
-                        <button class="button" value="paper"><img src="images/leaf.png" alt="mapleleaf" class="choiceImage"></button>
-                        <p class="gameChoicetext">Leaf</p>
+                    <div class="compLeaf" data-button="compLeaf">
+                        <img src="images/Leaf.png" alt="mapleLeaf" class="choiceImageNull">
                         
                     </div>
-                    <div class="gameChoice" id="compScissorsDiv">
-                        <button class="button" value="scissors"><img src="images/sticks.png" alt="hockeysticks" class="choiceImage"></button>
-                        <p class="gameChoicetext">Sticks</p>
+                    <div class="compSticks" data-button="compSticks">
+                        <img src="images/Sticks.png" alt="hockeySticks" class="choiceImageNull">
                         
                     </div>
                 </div>  
@@ -71,13 +63,15 @@
     </div>
 
     <script src="javascript.js"></script>
+
+    <footer>
+        <div class="attributes">
+            <a href="https://www.flaticon.com/free-icons/field-hockey" title="field hockey icons">Field hockey icons created by Smashicons - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/maple-syrup" title="maple syrup icons">Maple syrup icons created by Smashicons - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/curling" title="curling icons">Curling icons created by Smashicons - Flaticon</a>
+        </div>
+    </footer>
 </body>
-<footer>
-    <div class="attributes">
-        <a href="https://www.flaticon.com/free-icons/field-hockey" title="field hockey icons">Field hockey icons created by Smashicons - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/maple-syrup" title="maple syrup icons">Maple syrup icons created by Smashicons - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/curling" title="curling icons">Curling icons created by Smashicons - Flaticon</a>
-    </div>
-</footer>
+
 </html>
 

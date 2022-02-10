@@ -23,11 +23,13 @@ body{
     padding: 50px auto 30px;
     font-weight: 900;
 }
-.results {
+#results {
     color: white;
     font-size: x-large;
+    border: 5px solid;
+    border-color: white;
     text-align: center;
-    padding: 30px;
+    /* padding: 30px; */
 }
 
 .gameBox {
@@ -44,7 +46,6 @@ body{
     border-color: white;
     border-radius: 20px;
     margin: 50px 20px;
-    padding-bottom: 50px;
     width: 400px;
     height: 350px;
 }
@@ -71,19 +72,19 @@ body{
     
 }
 
-.gameChoice{
-    display: flex;
-    flex-direction: column;
-    
-}
-.button{
-    border: 2px solid;
-    border-radius: 50px;
-}
 
 .choiceImage {
+   background-color: white;
+   border: 1px thin;
+   border-radius: 50px;
+   padding: 10px 25px;
+}
 
-    padding: 10px;
+.choiceImageNull {
+    background-color: white;
+   border: 1px thin;
+   border-radius: 50px;
+   padding: 10px 25px;
 }
 
     

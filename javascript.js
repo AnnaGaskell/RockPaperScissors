@@ -1,96 +1,64 @@
 let playerScore = 0;
 let computerScore = 0;
-const buttons = document.querySelectorAll('button');
 
+const RockButton = document.querySelector(".RockButton");
+const LeafButton = document.querySelector(".LeafButton");
+const SticksButton = document.querySelector(".SticksButton");
 
 function computerPlay(){     
     
-    const choices = ["rock", "paper", "scissors"];
+    const choices = ["Rock", "Leaf", "Sticks"];
     let computerChoice = choices[Math.floor(Math.random()*choices.length)]
 
     return computerChoice;
     
 }
 
+function playRound(playerSelection, computerSelection) {
 
-
-
-function playRound(playerSelection) {
-
-    // playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase();
+    playerSelection = this.dataset.button;
     computerSelection = computerPlay();
+    let result = ""
     
-    if
-        (computerSelection === playerSelection) 
+    if (playerSelection === computerSelection) 
         {
-        let result = ("Tie Round");
-        return result;
-        }
-
-    else if
-        ((playerSelection === "rock" && computerSelection === "paper") || 
-        (playerSelection === "scissors" && computerSelection === "rock") ||
-        (playerSelection === "paper" && computerSelection === "scissors"))
+        result = ("Tie Round. You both chose " + playerSelection
+        + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        
+    } else if
+        ((playerSelection === "Rock" && computerSelection === "Leaf") || 
+        (playerSelection === "Sticks" && computerSelection === "Rock") ||
+        (playerSelection === "Leaf" && computerSelection === "Sticks"))
                 
         {
         computerScore++;
-        let result = "You Lost this Round.";
-        return result;
-        }   
-
-    else 
-        ((playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "scissors" && computerSelection === "paper") ||
-        (playerSelection === "paper" && computerSelection === "rock")) 
+        result = ("You Lost this Round - " + computerSelection + " beats " + playerSelection + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        
+        if (computerScore == 5) {
+            result += "<br><br>The Computer won the game! Reload the page to play again"
+            
+            }
+    } else if 
+        ((playerSelection === "Rock" && computerSelection === "Sticks") ||
+        (playerSelection === "Sticks" && computerSelection === "Leaf") ||
+        (playerSelection === "Leaf" && computerSelection === "Rock")) 
             
         {
         playerScore++;
-        let result = "You Win this Round.";
-        return result;
-        }
-    
-   
-}
-
-// console.log(playRound(playerSelection,computerSelection))
-
-function disableButtons() {
-    buttons.forEach(elem => {
-        elem.disabled = true
-    })
-}
-
- function endGame () {
-
-    if (playerScore > computerScore) {
-        result = "You Won the Game";
-        disableButtons();
-        return
-
-    } else (computerScore > playerScore); {
-        result = "You Lost the Game";
-        disableButtons();
-        return   
-    }
-   
-
- }
-
-function game () {
-    console.log(playRound());
-    if (playerScore < 5 && computerScore < 5){
-    	game();
+        result = ("You Won this Round - " + playerSelection + " beats " + computerSelection + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
         
-    } else {
-    	endGame();  
+        if (playerScore == 5) {
+            result += "<br><br>You won the game! Reload the page to play again"
+            
+            }
     }
-    document.getElementById('result').innerHTML = result;
+   
+document.getElementById("results").innerHTML = result
+return
+    
 }
 
-// game();
 
-buttons.forEach(button =>{
-    button.addEventListener('click', function(){
-        playRound(button.value)
-    })
-})
+RockButton.addEventListener('click', playRound);
+LeafButton.addEventListener('click', playRound);
+SticksButton.addEventListener('click', playRound);
