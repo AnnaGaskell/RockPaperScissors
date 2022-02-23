@@ -11,67 +11,70 @@
     <title>Rock, Leaf, Sticks</title>
 </head>
 <body>
-    <div class="container">
-        <div class="topBox">
-            <div class="title">Rock // Leaf // Sticks</div>
-            <div id="results"></div>
-        </div>
-        <div class="gameBox">
-            <div class="playerBox">
-                <h1 class="playerTitle">PLAYER</h1>
-                <div class="playerInfo">
-                    <img  src="images/canadian.png" alt="canadianicon" class="playerLogo"></img>
-                </div>
-                <div class=gameSelections>
-                    <div class="RockButton" data-button="Rock">
-                        <img src="images/rock.png" alt="curlingRock" class="choiceImage">
-                        
-                    </div>
-                    <div class="LeafButton" data-button="Leaf">
-                        <img src="images/leaf.png" alt="mapleLeaf" class="choiceImage">
-                        
-                    </div>
-                    <div class="SticksButton" data-button="Sticks">
-                        <img src="images/sticks.png" alt="hockeySticks" class="choiceImage">
-                        
-                    </div>
-                </div>  
-            </div>
+        <div class="title">Rock // Leaf // Sticks</div>
 
-            <div class="playerBox">
-                <h1 class="playerTitle">COMPUTER</h1>
-                <div class="playerInfo">
-                    <img src="images/mountie.png" alt="mountie" class="playerLogo">
-                </div>
-                <div class=gameSelections>
-                    <div class="compRock" data-button="compRock">
-                        <img src="images/rock.png" alt="curlingRock" class="choiceImageNull">
-                    
-                    </div>
-                    <div class="compLeaf" data-button="compLeaf">
-                        <img src="images/leaf.png" alt="mapleLeaf" class="choiceImageNull">
-                        
-                    </div>
-                    <div class="compSticks" data-button="compSticks">
-                        <img src="images/sticks.png" alt="hockeySticks" class="choiceImageNull">
-                        
-                    </div>
-                </div>  
+        <div class="gameSelections">
+            <div class="gameSelections" id="Rock">
+                <button>
+                    <img src="images/rock.png" alt="curlingRock" width=100px height=100px>
+                </button>
+            </div>      
+            <div class="gameSelections" id="Leaf">
+                <button>
+                    <img src="images/leaf.png" alt="mapleLeaf" width=100px height=100px>
+                </button>
             </div>
-        
+            <div class="gameSelections" id="Sticks">
+                <button>
+                    <img src="images/sticks.png" alt="hockeySticks" width=100px height=100px>
+                </button>
+            </div>
         </div>
+
+
+        <div class="result">
+            <p> </p>
+        </div>
+
+        <div class="score-board">
+            <div id="comp-choice">Computer Chose: <span id="computer-icon"> </span></div>
+            <div id="break">
+                <p>&#8226</p>  <p>&#8226</p> <p>&#8226</p>
+            </div>
+            <div id="tag"> 
+                <div class="name-tag">Player:</div>
+                <div id="player-score">0</div>
+                <div class="name-tag">Computer:</div>
+                <div id="computer-score">0</div>
+            </div>
+        </div>
+
+        <div class="modal" id="display-mod">
+            <div class="modal-content">
+                 <div id="end-result">
+                     <p> </p>
+                </div>
+                <div>
+                    <button id= "reset-btn" onClick="restartGame()">Play again?</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script src="javascript.js"></script>
 
     <footer>
+        <div class="copyright">
+            Anna Gaskell 2022
+        </div>
         <div class="attributes">
             <a href="https://www.flaticon.com/free-icons/field-hockey" title="field hockey icons">Field hockey icons created by Smashicons - Flaticon</a>
             <a href="https://www.flaticon.com/free-icons/maple-syrup" title="maple syrup icons">Maple syrup icons created by Smashicons - Flaticon</a>
             <a href="https://www.flaticon.com/free-icons/curling" title="curling icons">Curling icons created by Smashicons - Flaticon</a>
         </div>
     </footer>
+
+<script src="javascript.js"></script>
 </body>
 
 </html>
-
