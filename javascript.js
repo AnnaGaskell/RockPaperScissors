@@ -1,9 +1,16 @@
 let playerScore = 0;
 let computerScore = 0;
 
-const RockButton = document.querySelector(".RockButton");
-const LeafButton = document.querySelector(".LeafButton");
-const SticksButton = document.querySelector(".SticksButton");
+const playerScoreNum = document.getElementById("player-score");
+const computerScoreNum = document.getElementById("computer-score");
+const RockButton = document.getElementById("Rock");
+const LeafButton = document.getElementById("Leaf");
+const SticksButton = document.getElementById("Sticks");
+const resultDiv = document.querySelector(".result");
+const scoreBoardDiv = document.querySelector(".score-board");
+const computerIcon = document.getElementById("computer-icon");
+const modal = document.getElementById("display-mod");
+const endResult = document.getElementById("end-result");
 
 function computerPlay(){     
     
@@ -11,54 +18,102 @@ function computerPlay(){
     let computerChoice = choices[Math.floor(Math.random()*choices.length)]
 
     return computerChoice;
-    
 }
 
-function playRound(playerSelection, computerSelection) {
+//Score
+function win() {
+    playerScore++;
+    playerScoreNum.innerHTML = playerScore;
+    computerScoreNum.innerHTML = computerScore;
+}
 
-    playerSelection = this.dataset.button;
-    computerSelection = computerPlay();
-    let result = ""
-    
+function loss() {
+    computerScore++;
+    playerScoreNum.innerHTML = playerScore;
+    computerScoreNum.innerHTML = computerScore;
+  }
+
+//Game
+function game(playerSelection) {
+
+    const computerSelection = computerPlay();
+
+    //Tie
     if (playerSelection === computerSelection) 
         {
-        result = ("Tie Round. You both chose " + playerSelection
-        + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
-        
-    } else if
-        ((playerSelection === "Rock" && computerSelection === "Leaf") || 
-        (playerSelection === "Sticks" && computerSelection === "Rock") ||
-        (playerSelection === "Leaf" && computerSelection === "Sticks"))
-                
-        {
-        computerScore++;
-        result = ("You Lost this Round - " + computerSelection + " beats " + playerSelection + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
-        
-        if (computerScore == 5) {
-            result += "<br><br>The Computer won the game! Reload the page to play again"
-            
-            }
-    } else if 
-        ((playerSelection === "Rock" && computerSelection === "Sticks") ||
-        (playerSelection === "Sticks" && computerSelection === "Leaf") ||
-        (playerSelection === "Leaf" && computerSelection === "Rock")) 
-            
-        {
-        playerScore++;
-        result = ("You Won this Round - " + playerSelection + " beats " + computerSelection + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
-        
-        if (playerScore == 5) {
-            result += "<br><br>You won the game! Reload the page to play again"
-            
-            }
+        resultDiv.innerHTML = "Tie Round, Go again Buds!"
+        if (playerSelection === "Rock") {
+            computerIcon.innerHTML = "Rock" 
+          } else if (playerSelection === "Leaf") {
+            computerIcon.innerHTML = "Leaf" 
+          } else {
+            computerIcon.innerHTML = "Sticks" 
+          }
+
+    //Loss    
+    } else if (playerSelection === "Rock" && computerSelection === "Leaf") {
+        loss();
+        computerIcon.innerHTML = "Leaf" 
+        resultDiv.innerHTML = "You Lost this Round";
     }
-   
-document.getElementById("results").innerHTML = result
-return
-    
+    else if (playerSelection === "Sticks" && computerSelection === "Rock") {
+        loss();
+        computerIcon.innerHTML = "Rock" 
+        resultDiv.innerHTML = "You Lost this Round";
+    }
+    else if (playerSelection === "Leaf" && computerSelection === "Sticks") {
+        loss();
+        computerIcon.innerHTML = "Sticks" 
+        resultDiv.innerHTML = "You Lost this Round";
+       
+    //Win  
+    } else if (playerSelection === "Rock" && computerSelection === "Sticks"){
+            win();
+            computerIcon.innerHTML = "Sticks" 
+            resultDiv.innerHTML = "You Won this Round";
+        }
+    else if (playerSelection === "Sticks" && computerSelection === "Leaf") {
+            win();
+            computerIcon.innerHTML = "Leaf" 
+            resultDiv.innerHTML = "You Won this Round";
+        }
+    else if (playerSelection === "Leaf" && computerSelection === "Rock") {
+            win();
+            computerIcon.innerHTML = "Rock" 
+            resultDiv.innerHTML = "You Won this Round";
+    }
+            
+    checkWinner();
 }
 
+//Button Functions
 
-RockButton.addEventListener('click', playRound);
-LeafButton.addEventListener('click', playRound);
-SticksButton.addEventListener('click', playRound);
+ main();
+
+ function main() {
+    RockButton.addEventListener('click', () => game("Rock"));
+    LeafButton.addEventListener('click', () => game("Leaf"));
+    SticksButton.addEventListener('click', () => game("Sticks"));
+ }
+
+
+function checkWinner(){
+    if (playerScore === 5) {
+        openModal();
+        return endResult.innerHTML =  "Eh You Won Bud!";
+      } else if (computerScore === 5) {
+        openModal();
+        return endResult.innerHTML = "Oof You Lost That One Bud";
+      } 
+    return
+}
+
+//End Game & Restart
+
+const openModal = () => {
+  modal.classList.add('on');
+}
+
+const restartGame = () => {
+  window.location.reload();
+}
